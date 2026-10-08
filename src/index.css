@@ -228,9 +228,10 @@ body {
 @media (max-width: 640px) {
   /* Prevent the tall invitation texture from zooming/cropping on iPhones. */
   [data-invitation-page] {
-    background-size: 100% auto !important;
+    background-size: 100% calc(100vw * 1.5) !important;
     background-position: center top !important;
     background-attachment: scroll !important;
+    background-repeat: repeat-y !important;
   }
 
   .workspace-toolbar { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; padding-bottom: 2px; }
