@@ -24,6 +24,7 @@ import { PublicHome } from './components/PublicHome';
 import type { EventDetails, GuestResponse, WeddingEvent, DesignConfig } from './types';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { assetPath } from './assetPath';
 
 export function hexToRgba(hex: string, alpha: number): string {
   if (!hex) return `rgba(0, 0, 0, ${alpha})`;
@@ -278,7 +279,7 @@ export function App() {
     } catch (e) {
       console.error(e);
     }
-    return '/couple_sketch_art.jpg';
+    return assetPath('couple_sketch_art.jpg');
   });
 
   const [designConfig, setDesignConfig] = useState<DesignConfig>(() => {
@@ -558,7 +559,7 @@ export function App() {
     if (isSketchActive) {
       setIsSketchActive(false);
     } else {
-      setCouplePhoto('/couple_sketch_art.jpg');
+      setCouplePhoto(assetPath('couple_sketch_art.jpg'));
       setIsSketchActive(true);
     }
   };
@@ -809,7 +810,7 @@ export function App() {
         ...rootBackgroundStyle,
         ...(isPublicView ? {
           backgroundColor: '#481B26',
-          backgroundImage: "url('/bg_maroon_outer_sketch.png')",
+          backgroundImage: `url('${assetPath('bg_maroon_outer_sketch.png')}')`,
           backgroundPosition: 'center top',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',

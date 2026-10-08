@@ -338,7 +338,7 @@ body {
 .public-hero h1 em { color:#B69A64; font-style:italic; }
 .public-intro { max-width:430px; color:#626B62; font-size:16px; line-height:1.7; }
 .public-primary { display:inline-flex; align-items:center; gap:10px; margin-top:26px; border:0; border-radius:999px; padding:14px 20px; background:#34483D; color:#FFFDF8; font-weight:750; cursor:pointer; }
-.public-hero-card { min-height:330px; display:flex; flex-direction:column; justify-content:flex-end; gap:10px; padding:32px; border:1px solid #E3DED2; border-radius:160px 160px 18px 18px; background:linear-gradient(160deg,rgba(168,181,160,.42),rgba(255,253,248,.88)),url('/bg_cream_gold.jpg') center/cover; box-shadow:0 25px 60px rgba(52,72,61,.12); color:#34483D; }
+.public-hero-card { min-height:330px; display:flex; flex-direction:column; justify-content:flex-end; gap:10px; padding:32px; border:1px solid #E3DED2; border-radius:160px 160px 18px 18px; background:linear-gradient(160deg,rgba(168,181,160,.42),rgba(255,253,248,.88)),url('/wedding/bg_cream_gold.jpg') center/cover; box-shadow:0 25px 60px rgba(52,72,61,.12); color:#34483D; }
 .public-hero-card strong { font:700 31px/1 'Cormorant Garamond',serif; }
 .public-hero-card small { color:#626B62; }
 .public-template-section { padding-bottom:90px; }
@@ -395,7 +395,7 @@ body {
 .paper-reveal__panel--left::before { left: 24px; }
 .paper-reveal__panel--right::before { right: 24px; transform: scaleX(-1); }
 .paper-reveal__panel--right { transform-origin: right center; border-left: 1px solid rgba(184,155,103,.45); }
-.paper-reveal__panel-art { position: absolute; inset: 0; z-index: 0; opacity: 1; background-image: url('/paper-panel-floral-v2.png'); background-size: auto 100%; background-position: right center; background-repeat: no-repeat; }
+.paper-reveal__panel-art { position: absolute; inset: 0; z-index: 0; opacity: 1; background-image: url('/wedding/paper-panel-floral-v2.png'); background-size: auto 100%; background-position: right center; background-repeat: no-repeat; }
 .paper-reveal__panel--left .paper-reveal__panel-art { transform: scaleX(-1); }
 .paper-reveal__sheet::before { content: '✦'; position: absolute; top: 5%; left: 2.5%; color: rgba(112,37,54,.42); font-size: 24px; text-shadow: 310px 0 rgba(112,37,54,.42), 0 88vh rgba(112,37,54,.42), 310px 88vh rgba(112,37,54,.42); z-index: 3; }
 .paper-reveal__content { position: relative; z-index: 2; display: flex; width: min(76vw, 390px); flex-direction: column; align-items: center; justify-content: center; gap: 8px; transform: translateY(-25px); text-align: center; color: #702536; transition: opacity .45s ease, transform .7s ease; }

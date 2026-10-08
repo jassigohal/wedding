@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { assetPath } from '../assetPath';
 
 interface PaperRevealProps {
   onOpen: () => void;
@@ -32,7 +33,7 @@ export const PaperReveal: React.FC<PaperRevealProps> = ({ onOpen, brideName, gro
         <h1>{brideName || 'Bride Name'}</h1>
       </div>
         <button className="paper-reveal__seal" type="button" onClick={handleOpen} aria-label="Open wedding invitation">
-          <img src="/wax-seal-open-v2.png" alt="Open invitation" />
+          <img src={assetPath('wax-seal-open-v2.png')} alt="Open invitation" />
         </button>
     </div>
   );

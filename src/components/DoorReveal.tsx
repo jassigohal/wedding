@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { assetPath } from '../assetPath';
 
 interface DoorRevealProps {
   onOpen: () => void;
@@ -34,7 +35,7 @@ export const DoorReveal: React.FC<DoorRevealProps> = ({
           className={`w-1/2 h-full border-r-2 border-[#B69A64]/70 transition-transform duration-1000 ease-in-out ${
             isOpen ? '-translate-x-full' : 'translate-x-0'
           }`}
-          style={{ backgroundImage: 'url("/gate-left.svg")' }}
+          style={{ backgroundImage: `url("${assetPath('gate-left.svg')}")` }}
         >
           <div className="absolute inset-6 border border-[#B89B67]/55 rounded-l-2xl opacity-60" />
         </div>
@@ -44,7 +45,7 @@ export const DoorReveal: React.FC<DoorRevealProps> = ({
           className={`w-1/2 h-full border-l-2 border-[#B69A64]/70 transition-transform duration-1000 ease-in-out ${
             isOpen ? 'translate-x-full' : 'translate-x-0'
           }`}
-          style={{ backgroundImage: 'url("/gate-right.svg")' }}
+          style={{ backgroundImage: `url("${assetPath('gate-right.svg')}")` }}
         >
           <div className="absolute inset-6 border border-[#B89B67]/55 rounded-r-2xl opacity-60" />
         </div>
@@ -91,7 +92,7 @@ export const DoorReveal: React.FC<DoorRevealProps> = ({
               aria-label="Open wedding invitation"
               className="door-seal hover:scale-105 transition-all duration-300 cursor-pointer"
             >
-              <img src="/wax-seal-maroon.png" alt="" aria-hidden="true" />
+              <img src={assetPath('wax-seal-maroon.png')} alt="" aria-hidden="true" />
               <span>OPEN</span>
             </button>
           </div>

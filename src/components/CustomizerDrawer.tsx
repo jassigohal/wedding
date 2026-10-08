@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { assetPath } from '../assetPath';
 import {
   Settings,
   X,
@@ -39,12 +40,12 @@ interface CustomizerDrawerProps {
 }
 
 export const PREDEFINED_THEMES = [
-  { id: 'royal-crest', name: 'Ivory Paisley & Champagne', bg: '/royal_crest_background.jpg' },
-  { id: 'gold-green', name: 'Emerald Garden & Gold', bg: '/bg_gold_green.jpg' },
-  { id: 'maroon-green', name: 'Burgundy Botanical', bg: '/bg_maroon_green.jpg' },
-  { id: 'cream-gold', name: 'Royal Ivory Filigree', bg: '/bg_royal_ivory_generated.png' },
-  { id: 'yellow-gold', name: 'Marigold Celebration', bg: '/bg_yellow_gold.jpg' },
-  { id: 'heart-glow', name: 'Heart Glow Gate', bg: '/bg_heart_glow_generated.png' }
+  { id: 'royal-crest', name: 'Ivory Paisley & Champagne', bg: assetPath('royal_crest_background.jpg') },
+  { id: 'gold-green', name: 'Emerald Garden & Gold', bg: assetPath('bg_gold_green.jpg') },
+  { id: 'maroon-green', name: 'Burgundy Botanical', bg: assetPath('bg_maroon_green.jpg') },
+  { id: 'cream-gold', name: 'Royal Ivory Filigree', bg: assetPath('bg_royal_ivory_generated.png') },
+  { id: 'yellow-gold', name: 'Marigold Celebration', bg: assetPath('bg_yellow_gold.jpg') },
+  { id: 'heart-glow', name: 'Heart Glow Gate', bg: assetPath('bg_heart_glow_generated.png') }
 ];
 
 export interface ThemePreset {
