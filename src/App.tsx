@@ -56,9 +56,9 @@ export function normalizeWeddingEvent(evt: any, idx = 0): WeddingEvent {
   const time = endTime ? `${startTime} - ${endTime}` : startTime;
   const savedSubEvents = Array.isArray(evt.subEvents) ? evt.subEvents : [];
   const subEvents = savedSubEvents.length > 0 || id !== 'event-anand-karaj' ? savedSubEvents.map((sub: any) => (
-    sub.id === 'anand-bharat' ? { ...sub, name: 'Bharat Departure' } : sub
+    sub.id === 'anand-bharat' ? { ...sub, name: 'Baraat Departure' } : sub
   )) : [
-    { id: 'anand-bharat', name: 'Bharat Departure', date, startTime: '6:00 PM', endTime: '10:00 AM', venueName, address },
+    { id: 'anand-bharat', name: 'Baraat Departure', date, startTime: '6:00 PM', endTime: '10:00 AM', venueName, address },
     { id: 'anand-karaj-sub-event', name: 'Anand Karaj', date, startTime: '10:00 AM', endTime: '1:00 PM', venueName, address },
     { id: 'anand-doli', name: 'Doli Ceremony', date, startTime: '4:30 PM', endTime: '2:00 PM', venueName, address }
   ];
@@ -159,7 +159,7 @@ const initialEventDetails: EventDetails = {
       subEvents: [
         {
           id: 'anand-bharat',
-          name: 'Bharat Departure',
+          name: 'Baraat Departure',
           date: '27 Nov 2026',
           startTime: '6:00 PM',
           endTime: '10:00 AM',
