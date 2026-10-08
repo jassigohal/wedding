@@ -764,6 +764,8 @@ export function App() {
 
   const rootBackgroundStyle = getBackgroundStyles();
   const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(`${eventDetails.groomName} & ${eventDetails.brideName} — Anand Karaj`)}&dates=20261127T100000/20261127T130000&details=${encodeURIComponent(eventDetails.storyText)}&location=${encodeURIComponent(`${eventDetails.venueName}, ${eventDetails.venueAddress}`)}&ctz=Asia%2FKolkata`;
+  const calendarIcs = `BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Wedding Invitation//EN\r\nBEGIN:VEVENT\r\nUID:wedding-anand-karaj-20261127@wedding-invitation\r\nDTSTAMP:20261008T000000Z\r\nDTSTART;TZID=Asia/Kolkata:20261127T100000\r\nDTEND;TZID=Asia/Kolkata:20261127T130000\r\nSUMMARY:${eventDetails.groomName} & ${eventDetails.brideName} — Anand Karaj\r\nDESCRIPTION:${eventDetails.storyText.replace(/[\r\n]+/g, ' ')}\r\nLOCATION:${eventDetails.venueName}, ${eventDetails.venueAddress}\r\nEND:VEVENT\r\nEND:VCALENDAR`;
+  const calendarIcsUrl = `data:text/calendar;charset=utf-8,${encodeURIComponent(calendarIcs)}`;
 
   if (isLandingView) {
     return <PublicHome onBuyTemplate={(templateId) => {
@@ -1044,14 +1046,23 @@ export function App() {
         {layoutConfig.showScratchCard && isDateRevealed && (
           <div className="mt-7 mb-12 text-center">
             <a
-              href={googleCalendarUrl}
-              target="_blank"
-              rel="noreferrer"
+              href={calendarIcsUrl}
+              download="sandeep-sarbjeet-anand-karaj.ics"
               className="inline-flex items-center gap-2 rounded-full border px-5 py-2 text-sm font-semibold transition hover:brightness-110"
               style={{ color: 'var(--primary)', borderColor: 'var(--accent)', backgroundColor: 'rgba(255,255,255,.12)' }}
             >
               <Calendar size={16} aria-hidden="true" />
-              Save the Date in Google Calendar
+              Add to Phone Calendar
+            </a>
+            <a
+              href={googleCalendarUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="ml-2 inline-flex items-center gap-2 rounded-full border px-5 py-2 text-sm font-semibold transition hover:brightness-110"
+              style={{ color: 'var(--primary)', borderColor: 'var(--accent)', backgroundColor: 'rgba(255,255,255,.12)' }}
+            >
+              <Calendar size={16} aria-hidden="true" />
+              Google Calendar Web
             </a>
           </div>
         )}
