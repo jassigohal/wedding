@@ -762,6 +762,7 @@ export function App() {
   };
 
   const rootBackgroundStyle = getBackgroundStyles();
+  const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(`${eventDetails.groomName} & ${eventDetails.brideName} — Anand Karaj`)}&dates=20261127T100000/20261127T130000&details=${encodeURIComponent(eventDetails.storyText)}&location=${encodeURIComponent(`${eventDetails.venueName}, ${eventDetails.venueAddress}`)}&ctz=Asia%2FKolkata`;
 
   if (isLandingView) {
     return <PublicHome onBuyTemplate={(templateId) => {
@@ -1036,6 +1037,16 @@ export function App() {
         {layoutConfig.showScratchCard && (
           <div className="text-center my-2">
             <ScratchToReveal revealText={eventDetails.weddingDate} />
+            <a
+              href={googleCalendarUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-5 inline-flex items-center gap-2 rounded-full border px-5 py-2 text-sm font-semibold transition hover:brightness-110"
+              style={{ color: 'var(--primary)', borderColor: 'var(--accent)', backgroundColor: 'rgba(255,255,255,.12)' }}
+            >
+              <Calendar size={16} aria-hidden="true" />
+              Save the Date in Google Calendar
+            </a>
           </div>
         )}
 
