@@ -6,7 +6,7 @@ const slides = [
   { image: 'couple-gallery-1.png', caption: 'A beautiful beginning' },
   { image: 'couple-gallery-2.png', caption: 'Two hearts, one journey' },
   { image: 'couple-gallery-3.png', caption: 'Together with love' },
-  { image: 'couple_photo.jpg', caption: 'Our forever starts here' },
+  { image: 'couple-gallery-4.png', caption: 'Our forever starts here' },
 ];
 
 export const CoupleGallery: React.FC = () => {
