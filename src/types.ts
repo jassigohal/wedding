@@ -95,4 +95,7 @@ export interface DesignConfig {
   textColor: string;
   accentColor: string;
   typography: TypographyConfig;
+  frontPanelLeftImage?: string;
+  frontPanelRightImage?: string;
+  galleryImages?: string[];
 }

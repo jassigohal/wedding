@@ -8,7 +8,7 @@ import {
   FileText,
   X
 } from 'lucide-react';
-import type { EventDetails } from '../types';
+import type { EventDetails, DesignConfig } from '../types';
 import { PREDEFINED_THEMES } from './CustomizerDrawer';
 
 export interface LayoutConfig {
@@ -34,6 +34,8 @@ interface AdminDashboardModalProps {
   onSelectTemplate: (template: string) => void;
   layoutConfig: LayoutConfig;
   onUpdateLayoutConfig: (config: LayoutConfig) => void;
+  designConfig: DesignConfig;
+  onUpdateDesignConfig: (config: DesignConfig) => void;
 }
 
 export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
@@ -44,9 +46,17 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
   selectedTemplate,
   onSelectTemplate,
   layoutConfig,
-  onUpdateLayoutConfig
+  onUpdateLayoutConfig,
+  designConfig,
+  onUpdateDesignConfig
 }) => {
-  const [activeTab, setActiveTab] = useState<'layout' | 'content' | 'theme'>('layout');
+  const [activeTab, setActiveTab] = useState<'layout' | 'content' | 'theme' | 'media'>('layout');
+  const updateMedia = (key: 'frontPanelLeftImage' | 'frontPanelRightImage', value: string) => onUpdateDesignConfig({ ...designConfig, [key]: value });
+  const updateGalleryImage = (index: number, value: string) => {
+    const galleryImages = [...(designConfig.galleryImages || [])];
+    galleryImages[index] = value;
+    onUpdateDesignConfig({ ...designConfig, galleryImages });
+  };
 
   if (!isOpen) return null;
 
@@ -127,6 +137,12 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
             }`}
           >
             <FileText className="w-4 h-4 text-[#d4af37]" /> Venue & Ceremony Data
+          </button>
+          <button
+            onClick={() => setActiveTab('media')}
+            className={`flex-1 py-3 px-4 font-bold flex items-center justify-center gap-2 cursor-pointer transition-colors ${activeTab === 'media' ? 'bg-[#d4af37]/20 border-b-2 border-[#d4af37] text-[#fce09b]' : 'text-amber-100/70 hover:bg-white/5'}`}
+          >
+            <Palette className="w-4 h-4 text-[#d4af37]" /> Photos & Colors
           </button>
         </div>
 
@@ -355,6 +371,29 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
                   onChange={(e) => onUpdateEventDetails({ ...eventDetails, mapUrl: e.target.value })}
                   className="w-full bg-black/80 border border-[#d4af37]/40 rounded-lg p-2 text-white mt-1 text-xs"
                 />
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'media' && (
+            <div className="space-y-5">
+              <div className="rounded-xl border border-[#d4af37]/40 bg-black/40 p-4 space-y-3">
+                <h3 className="text-sm font-bold text-[#fce09b] uppercase tracking-wider">Color Combination</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  {([['primaryColor', 'Primary'], ['secondaryColor', 'Secondary'], ['headingColor', 'Heading'], ['textColor', 'Text'], ['accentColor', 'Accent'], ['backgroundColor', 'Background']] as const).map(([key, label]) => (
+                    <label key={key} className="text-xs text-amber-100/80">{label}<input type="color" value={designConfig[key]} onChange={(e) => onUpdateDesignConfig({ ...designConfig, [key]: e.target.value })} className="mt-1 block h-10 w-full cursor-pointer rounded border border-[#d4af37]/40 bg-transparent" /></label>
+                  ))}
+                </div>
+              </div>
+              <div className="rounded-xl border border-[#d4af37]/40 bg-black/40 p-4 space-y-3">
+                <h3 className="text-sm font-bold text-[#fce09b] uppercase tracking-wider">Front Opening Panel Images</h3>
+                <p className="text-xs text-neutral-300">Paste a public image URL or a project asset path such as <code>/paper-panel-floral-v2.png</code>.</p>
+                {([['frontPanelLeftImage', 'Left panel'], ['frontPanelRightImage', 'Right panel']] as const).map(([key, label]) => <label key={key} className="block text-xs text-amber-100/80">{label}<input value={designConfig[key] || ''} onChange={(e) => updateMedia(key, e.target.value)} placeholder="/your-panel-image.png" className="mt-1 w-full rounded border border-[#d4af37]/40 bg-[#1c0406] p-2 text-xs text-white" /></label>)}
+              </div>
+              <div className="rounded-xl border border-[#d4af37]/40 bg-black/40 p-4 space-y-3">
+                <h3 className="text-sm font-bold text-[#fce09b] uppercase tracking-wider">Sliding Gallery Photos</h3>
+                <p className="text-xs text-neutral-300">Add up to four different image paths or URLs. Changes apply immediately to the public page.</p>
+                {[0, 1, 2, 3].map((index) => <label key={index} className="block text-xs text-amber-100/80">Photo {index + 1}<input value={designConfig.galleryImages?.[index] || ''} onChange={(e) => updateGalleryImage(index, e.target.value)} placeholder="/couple-gallery-1.png" className="mt-1 w-full rounded border border-[#d4af37]/40 bg-[#1c0406] p-2 text-xs text-white" /></label>)}
               </div>
             </div>
           )}

@@ -838,6 +838,8 @@ export function App() {
           onOpen={() => setHasOpenedDoors(true)}
           brideName={eventDetails.brideName}
           groomName={eventDetails.groomName}
+          panelLeftImage={designConfig.frontPanelLeftImage ? (designConfig.frontPanelLeftImage.startsWith('/') ? assetPath(designConfig.frontPanelLeftImage) : designConfig.frontPanelLeftImage) : undefined}
+          panelRightImage={designConfig.frontPanelRightImage ? (designConfig.frontPanelRightImage.startsWith('/') ? assetPath(designConfig.frontPanelRightImage) : designConfig.frontPanelRightImage) : undefined}
         />
       )}
 
@@ -885,6 +887,8 @@ export function App() {
         onSelectTemplate={handleSelectTemplate}
         layoutConfig={layoutConfig}
         onUpdateLayoutConfig={setLayoutConfig}
+        designConfig={designConfig}
+        onUpdateDesignConfig={setDesignConfig}
       />}
 
       {/* Floating Header Controls */}
@@ -1268,7 +1272,7 @@ export function App() {
         </section>
 
         {/* Interactive RSVP & Guestbook */}
-        <CoupleGallery />
+              <CoupleGallery images={designConfig.galleryImages} />
         {layoutConfig.showGuestbook && (
           <GuestBookRSVP onAddResponse={handleAddResponse} responses={responses} />
         )}

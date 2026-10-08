@@ -5,9 +5,11 @@ interface PaperRevealProps {
   onOpen: () => void;
   brideName: string;
   groomName: string;
+  panelLeftImage?: string;
+  panelRightImage?: string;
 }
 
-export const PaperReveal: React.FC<PaperRevealProps> = ({ onOpen, brideName, groomName }) => {
+export const PaperReveal: React.FC<PaperRevealProps> = ({ onOpen, brideName, groomName, panelLeftImage, panelRightImage }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => {
@@ -19,8 +21,8 @@ export const PaperReveal: React.FC<PaperRevealProps> = ({ onOpen, brideName, gro
   return (
     <div className={`paper-reveal ${isOpen ? 'paper-reveal--open' : ''}`}>
       <div className="paper-reveal__sheet" aria-hidden="true">
-        <div className="paper-reveal__panel paper-reveal__panel--left"><span className="paper-reveal__panel-art" aria-hidden="true" /></div>
-        <div className="paper-reveal__panel paper-reveal__panel--right"><span className="paper-reveal__panel-art" aria-hidden="true" /></div>
+        <div className="paper-reveal__panel paper-reveal__panel--left"><span className="paper-reveal__panel-art" aria-hidden="true" style={panelLeftImage ? { backgroundImage: `url("${panelLeftImage}")` } : undefined} /></div>
+        <div className="paper-reveal__panel paper-reveal__panel--right"><span className="paper-reveal__panel-art" aria-hidden="true" style={panelRightImage ? { backgroundImage: `url("${panelRightImage}")` } : undefined} /></div>
       </div>
       <div className="paper-reveal__invitation-title">WEDDING INVITATION</div>
       <svg className="paper-reveal__heart" viewBox="0 0 360 330" aria-hidden="true">
