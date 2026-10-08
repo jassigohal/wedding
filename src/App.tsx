@@ -22,6 +22,7 @@ import { PREDEFINED_THEMES, DEFAULT_DESIGN_CONFIG } from './components/Customize
 import type { LayoutConfig } from './layoutTypes';
 import { CurrentAdminPanel } from './components/CurrentAdminPanel';
 import { CurrentAdminWorkspace } from './components/CurrentAdminWorkspace';
+import { ThreePaneAdminWorkspace } from './components/ThreePaneAdminWorkspace';
 import { PublicHome } from './components/PublicHome';
 import type { EventDetails, GuestResponse, WeddingEvent, DesignConfig } from './types';
 import html2canvas from 'html2canvas';
@@ -767,7 +768,7 @@ export function App() {
   }
 
   if (!isPublicView) {
-    return <CurrentAdminWorkspace
+    return <ThreePaneAdminWorkspace
       eventDetails={eventDetails}
       onSaveEventDetails={setEventDetails}
       designConfig={designConfig}
