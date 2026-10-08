@@ -21,6 +21,7 @@ import { PDFTemplate } from './components/PDFTemplate';
 import { PREDEFINED_THEMES, DEFAULT_DESIGN_CONFIG } from './components/CustomizerDrawer';
 import type { LayoutConfig } from './layoutTypes';
 import { CurrentAdminPanel } from './components/CurrentAdminPanel';
+import { CurrentAdminWorkspace } from './components/CurrentAdminWorkspace';
 import { PublicHome } from './components/PublicHome';
 import type { EventDetails, GuestResponse, WeddingEvent, DesignConfig } from './types';
 import html2canvas from 'html2canvas';
@@ -763,6 +764,16 @@ export function App() {
         </form>
       </main>
     );
+  }
+
+  if (!isPublicView) {
+    return <CurrentAdminWorkspace
+      eventDetails={eventDetails}
+      onSaveEventDetails={setEventDetails}
+      designConfig={designConfig}
+      onSaveDesignConfig={setDesignConfig}
+      onPreviewPdf={() => setIsPdfPreviewOpen(true)}
+    />;
   }
 
   return (
