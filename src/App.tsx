@@ -785,7 +785,7 @@ export function App() {
           backgroundColor: '#f4ead9',
           // Keep all gate artwork isolated to PaperReveal. Do not place any
           // entrance/legacy image behind the public invitation.
-          backgroundImage: `url('${assetPath('invitation-inner-background.png')}')`,
+          backgroundImage: `url('${assetPath('invitation-inner-background.png')}?v=maroon-final-2')`,
           backgroundPosition: 'center top',
           backgroundSize: '100% auto',
           backgroundRepeat: 'repeat-y',
