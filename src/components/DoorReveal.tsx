@@ -70,7 +70,7 @@ export const DoorReveal: React.FC<DoorRevealProps> = ({
 
           {/* Main Couple Names & Title Container */}
           <div className="door-invitation-card relative z-10 px-8 sm:px-12 text-center flex flex-col items-center justify-center max-w-[360px]">
-            <span className="door-card-kicker">Together with their families</span>
+            <span className="door-card-kicker">ੴ ਸਤਿਗੁਰ ਪ੍ਰਸਾਦਿ</span>
             <h1 className="text-lg sm:text-xl font-cinzel text-gold-shine tracking-wider font-extrabold uppercase leading-tight">
               {groomName || 'Groom Name'}
             </h1>

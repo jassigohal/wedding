@@ -961,7 +961,7 @@ export function App() {
                 color: 'var(--text)'
               }}
             >
-              <p className="italic">Together with their parents</p>
+              <p className="italic">With the blessings of Waheguru Ji</p>
               <p>
                 Son of <span className="font-semibold" style={{ color: 'var(--heading)' }}>Smt. {eventDetails.groomMotherName} & S. {eventDetails.groomFatherName}</span>
               </p>

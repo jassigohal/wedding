@@ -27,7 +27,7 @@ export const PaperReveal: React.FC<PaperRevealProps> = ({ onOpen, brideName, gro
         <path d="M180 316 C162 299 38 210 25 116 C16 51 84 14 133 54 C153 70 169 88 180 101 C191 88 207 70 227 54 C276 14 344 51 335 116 C322 210 198 299 180 316 Z" />
       </svg>
       <div className="paper-reveal__content">
-        <div className="paper-reveal__kicker">Together with their families</div>
+        <div className="paper-reveal__kicker">ੴ ਸਤਿਗੁਰ ਪ੍ਰਸਾਦਿ</div>
         <h1>{groomName || 'Groom Name'}</h1>
         <div className="paper-reveal__amp">&amp;</div>
         <h1>{brideName || 'Bride Name'}</h1>
