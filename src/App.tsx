@@ -844,41 +844,7 @@ export function App() {
         />
       )}
 
-      {/* Dynamic Customizer Drawer */}
-      {!isPublicView && <CustomizerDrawer
-        details={eventDetails}
-        onChange={setEventDetails}
-        selectedTemplate={selectedTemplate}
-        onSelectTemplate={handleSelectTemplate}
-        isOpen={isDrawerOpen}
-        onClose={() => setIsDrawerOpen(false)}
-        onUploadPhoto={handleUploadPhoto}
-        onUploadBackground={handleUploadBackground}
-        isSketchActive={isSketchActive}
-        onToggleSketch={handleToggleSketch}
-        onOpenAdmin={() => setIsAdminDashboardOpen(true)}
-        designConfig={designConfig}
-        onChangeDesign={setDesignConfig}
-      />}
-
-      {!isPublicView && isDrawerOpen && (
-        <aside className="studio-demo-panel" aria-label="Live website demo">
-          <div className="studio-demo-header">
-            <div>
-              <div className="studio-eyebrow">Live demo</div>
-              <h2>Guest website preview</h2>
-            </div>
-            <a href={getPublicInvitationUrl()} target="_blank" rel="noopener noreferrer" className="studio-demo-link">Open website ↗</a>
-          </div>
-          <div className="studio-demo-grid">
-            <div className="studio-demo-card"><div className="studio-demo-card-title">Desktop view</div><div className="studio-demo-frame"><iframe title="Desktop guest invitation preview" src={`${window.location.pathname}?view=public`} /></div></div>
-            <div className="studio-demo-card studio-demo-mobile-card"><div className="studio-demo-card-title">Mobile view</div><div className="studio-demo-phone"><iframe title="Mobile guest invitation preview" src={`${window.location.pathname}?view=public`} /></div></div>
-          </div>
-          <div className="studio-demo-footer"><span>Updates from your editor automatically</span><button onClick={copyPublicInvitationLink}>Copy guest link</button></div>
-        </aside>
-      )}
-
-      {/* Admin Dashboard Modal */}
+      {/* Dedicated editor for this finalized invitation version only */}
       {!isPublicView && <FinalVersionEditor
         isOpen={isAdminDashboardOpen}
         onClose={() => setIsAdminDashboardOpen(false)}
@@ -894,14 +860,7 @@ export function App() {
           onClick={() => setIsAdminDashboardOpen(true)}
           className="px-2.5 py-2 sm:px-4 sm:py-2.5 rounded-full bg-[#1c0406] border-2 border-[#d4af37] text-[#fce09b] font-cinzel font-bold text-[10px] sm:text-xs uppercase tracking-wider shadow-xl hover:scale-105 transition-all flex items-center gap-1.5 cursor-pointer"
         >
-          <Shield className="w-4 h-4 text-[#d4af37]" /> Admin Layout Dashboard
-        </button>
-
-        <button
-          onClick={() => setIsDrawerOpen(true)}
-          className="px-2.5 py-2 sm:px-4 sm:py-2.5 rounded-full bg-gradient-to-r from-[#d4af37] via-[#fcf6ba] to-[#aa771c] text-neutral-950 font-cinzel font-bold text-[10px] sm:text-xs uppercase tracking-wider shadow-xl hover:scale-105 transition-all flex items-center gap-1.5 cursor-pointer"
-        >
-          <Edit3 className="w-4 h-4" /> Live Editor
+          <Shield className="w-4 h-4 text-[#d4af37]" /> Final Version Editor
         </button>
 
         <button
