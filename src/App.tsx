@@ -20,7 +20,8 @@ import { GuestBookRSVP } from './components/GuestBookRSVP';
 import { CoupleGallery } from './components/CoupleGallery';
 import { PDFTemplate } from './components/PDFTemplate';
 import { CustomizerDrawer, PREDEFINED_THEMES, DEFAULT_DESIGN_CONFIG } from './components/CustomizerDrawer';
-import { AdminDashboardModal, type LayoutConfig } from './components/AdminDashboardModal';
+import type { LayoutConfig } from './components/AdminDashboardModal';
+import { FinalVersionEditor } from './components/FinalVersionEditor';
 import { PublicHome } from './components/PublicHome';
 import type { EventDetails, GuestResponse, WeddingEvent, DesignConfig } from './types';
 import html2canvas from 'html2canvas';
@@ -878,15 +879,11 @@ export function App() {
       )}
 
       {/* Admin Dashboard Modal */}
-      {!isPublicView && <AdminDashboardModal
+      {!isPublicView && <FinalVersionEditor
         isOpen={isAdminDashboardOpen}
         onClose={() => setIsAdminDashboardOpen(false)}
         eventDetails={eventDetails}
         onUpdateEventDetails={setEventDetails}
-        selectedTemplate={selectedTemplate}
-        onSelectTemplate={handleSelectTemplate}
-        layoutConfig={layoutConfig}
-        onUpdateLayoutConfig={setLayoutConfig}
         designConfig={designConfig}
         onUpdateDesignConfig={setDesignConfig}
       />}
