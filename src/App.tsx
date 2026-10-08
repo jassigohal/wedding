@@ -664,7 +664,7 @@ export function App() {
         isSketchActive,
         layoutConfig,
         designConfig,
-        couplePhoto: couplePhoto.startsWith('data:') ? '/couple_sketch_art.jpg' : couplePhoto
+        couplePhoto: couplePhoto.startsWith('data:') ? assetPath('couple_sketch_art.jpg') : couplePhoto
       };
       const jsonString = JSON.stringify(invitationState);
       const encodedData = btoa(jsonString);
@@ -1008,7 +1008,7 @@ export function App() {
             >
               <div className="rounded-xl overflow-hidden aspect-square border relative" style={{ borderColor: '#F5EBDD', background: '#351017' }}>
                 <img
-                  src={couplePhoto}
+                  src={couplePhoto.startsWith('/') && !couplePhoto.startsWith(import.meta.env.BASE_URL) ? assetPath(couplePhoto) : couplePhoto}
                   alt={`${eventDetails.groomName} and ${eventDetails.brideName}`}
                   className="w-full h-full object-cover"
                 />
