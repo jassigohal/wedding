@@ -21,7 +21,6 @@ import { PDFTemplate } from './components/PDFTemplate';
 import { PREDEFINED_THEMES, DEFAULT_DESIGN_CONFIG } from './components/CustomizerDrawer';
 import type { LayoutConfig } from './layoutTypes';
 import { CurrentAdminPanel } from './components/CurrentAdminPanel';
-import { CurrentAdminWorkspace } from './components/CurrentAdminWorkspace';
 import { ThreePaneAdminWorkspace } from './components/ThreePaneAdminWorkspace';
 import { PublicHome } from './components/PublicHome';
 import type { EventDetails, GuestResponse, WeddingEvent, DesignConfig } from './types';
@@ -773,7 +772,6 @@ export function App() {
       onSaveEventDetails={setEventDetails}
       designConfig={designConfig}
       onSaveDesignConfig={setDesignConfig}
-      onPreviewPdf={() => setIsPdfPreviewOpen(true)}
     />;
   }
 
