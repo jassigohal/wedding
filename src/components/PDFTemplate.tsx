@@ -5,7 +5,7 @@ import { DEFAULT_TYPOGRAPHY_CONFIG } from '../typography';
 interface PDFTemplateProps { details: EventDetails; couplePhoto: string; designConfig: DesignConfig; customBgImage?: string | null; preview?: boolean; }
 const rgba = (hex: string, alpha: number) => { const v = (hex || '#000000').replace('#', '').trim(); const x = v.length === 3 ? v.split('').map(c => c + c).join('') : v; if (x.length !== 6) return `rgba(0,0,0,${alpha})`; return `rgba(${parseInt(x.slice(0, 2), 16)},${parseInt(x.slice(2, 4), 16)},${parseInt(x.slice(4, 6), 16)},${alpha})`; };
 const clean = (value?: string) => value?.trim();
-const orderedEvents = (events: WeddingEvent[]) => [...events].sort((a, b) => { const rank = (e: WeddingEvent) => { const n = (e.name || e.title || '').toLowerCase(); const i = ['jaago', 'jaggo', 'sukhmani sahib path', 'sukhmani', 'anand karaj'].findIndex(x => n.includes(x)); return i < 0 ? 99 : i; }; return rank(a) - rank(b); });
+const orderedEvents = (events: WeddingEvent[]) => [...events].sort((a, b) => { const rank = (e: WeddingEvent) => { const n = (e.name || e.title || '').toLowerCase(); const i = ['sukhmani sahib path', 'sukhmani', 'jaago', 'jaggo', 'anand karaj'].findIndex(x => n.includes(x)); return i < 0 ? 99 : i; }; return rank(a) - rank(b); });
 
 export const PDFTemplate: React.FC<PDFTemplateProps> = ({ details, couplePhoto, designConfig, customBgImage, preview = false }) => {
   const typo = designConfig?.typography || DEFAULT_TYPOGRAPHY_CONFIG;
