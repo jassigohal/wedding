@@ -210,12 +210,7 @@ export function App() {
   const [pdfError, setPdfError] = useState<string | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isMobilePreview, setIsMobilePreview] = useState(false);
-  const [isPublicView] = useState(() => {
-    const params = new URLSearchParams(window.location.search);
-    // The finalized invitation is the default public experience. Keep the
-    // studio landing page available explicitly at ?view=landing.
-    return params.get('view') === 'public' || (!params.has('view') && !params.has('invitation'));
-  });
+  const [isPublicView] = useState(() => new URLSearchParams(window.location.search).get('view') === 'public');
   const [isAdminDashboardOpen, setIsAdminDashboardOpen] = useState(false);
   const [adminAuthenticated, setAdminAuthenticated] = useState(() => sessionStorage.getItem('version1_admin_auth') === 'true');
   const [adminUsername, setAdminUsername] = useState('');
@@ -223,7 +218,7 @@ export function App() {
   const [adminLoginError, setAdminLoginError] = useState('');
   const isLandingView = useState(() => {
     const params = new URLSearchParams(window.location.search);
-    return params.get('view') === 'landing';
+    return !params.has('view') && !params.has('invitation');
   })[0];
 
   const [selectedTemplate, setSelectedTemplate] = useState<string>(() => {
