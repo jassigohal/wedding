@@ -10,7 +10,6 @@ import {
   Sparkles,
   ExternalLink,
   Heart,
-  Edit3,
   Shield
 } from 'lucide-react';
 import { PaperReveal } from './components/PaperReveal';
@@ -19,7 +18,7 @@ import { CountdownTimer } from './components/CountdownTimer';
 import { GuestBookRSVP } from './components/GuestBookRSVP';
 import { CoupleGallery } from './components/CoupleGallery';
 import { PDFTemplate } from './components/PDFTemplate';
-import { CustomizerDrawer, PREDEFINED_THEMES, DEFAULT_DESIGN_CONFIG } from './components/CustomizerDrawer';
+import { PREDEFINED_THEMES, DEFAULT_DESIGN_CONFIG } from './components/CustomizerDrawer';
 import type { LayoutConfig } from './components/AdminDashboardModal';
 import { FinalVersionEditor } from './components/FinalVersionEditor';
 import { PublicHome } from './components/PublicHome';
@@ -212,7 +211,6 @@ export function App() {
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
   const [isPdfPreviewOpen, setIsPdfPreviewOpen] = useState(false);
   const [pdfError, setPdfError] = useState<string | null>(null);
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isMobilePreview, setIsMobilePreview] = useState(false);
   const [isPublicView] = useState(() => new URLSearchParams(window.location.search).get('view') === 'public');
   const [isAdminDashboardOpen, setIsAdminDashboardOpen] = useState(false);
@@ -513,39 +511,6 @@ export function App() {
     }
   };
 
-  const handleUploadPhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        if (event.target?.result) {
-          setCouplePhoto(event.target.result as string);
-          setIsSketchActive(false);
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleUploadBackground = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        if (event.target?.result) {
-          const bgData = event.target.result as string;
-          setCustomBgImage(bgData);
-          setDesignConfig((prev) => ({
-            ...prev,
-            backgroundType: 'image',
-            backgroundImage: bgData
-          }));
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
   const handleSelectTemplate = (templateId: string) => {
     setSelectedTemplate(templateId);
     const matched = PREDEFINED_THEMES.find((t) => t.id === templateId);
@@ -558,14 +523,6 @@ export function App() {
     }
   };
 
-  const handleToggleSketch = () => {
-    if (isSketchActive) {
-      setIsSketchActive(false);
-    } else {
-      setCouplePhoto(assetPath('couple_sketch_art.jpg'));
-      setIsSketchActive(true);
-    }
-  };
 
   const handleAddResponse = (newResp: GuestResponse) => {
     setResponses((prev) => [newResp, ...prev]);
@@ -895,7 +852,7 @@ export function App() {
       </div>}
 
       {/* Main Content Area */}
-      <div className={isMobilePreview ? 'mobile-preview-shell max-w-[430px] w-full mx-auto px-3 py-12' : `max-w-4xl mx-auto px-4 py-12 ${isDrawerOpen ? 'lg:ml-[460px]' : ''}`}>
+      <div className={isMobilePreview ? 'mobile-preview-shell max-w-[430px] w-full mx-auto px-3 py-12' : 'max-w-4xl mx-auto px-4 py-12'}>
         {isMobilePreview && <div className="mobile-preview-label">Mobile preview · 390px</div>}
         {/* Royal Crest Monogram & Card Frame Header */}
         <header
