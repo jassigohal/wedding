@@ -19,7 +19,7 @@ import { GuestBookRSVP } from './components/GuestBookRSVP';
 import { CoupleGallery } from './components/CoupleGallery';
 import { PDFTemplate } from './components/PDFTemplate';
 import { PREDEFINED_THEMES, DEFAULT_DESIGN_CONFIG } from './components/CustomizerDrawer';
-import type { LayoutConfig } from './components/AdminDashboardModal';
+import type { LayoutConfig } from './layoutTypes';
 import { FinalVersionEditor } from './components/FinalVersionEditor';
 import { PublicHome } from './components/PublicHome';
 import type { EventDetails, GuestResponse, WeddingEvent, DesignConfig } from './types';
