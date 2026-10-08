@@ -17,6 +17,7 @@ import { PaperReveal } from './components/PaperReveal';
 import { ScratchToReveal } from './components/ScratchToReveal';
 import { CountdownTimer } from './components/CountdownTimer';
 import { GuestBookRSVP } from './components/GuestBookRSVP';
+import { CoupleGallery } from './components/CoupleGallery';
 import { PDFTemplate } from './components/PDFTemplate';
 import { CustomizerDrawer, PREDEFINED_THEMES, DEFAULT_DESIGN_CONFIG } from './components/CustomizerDrawer';
 import { AdminDashboardModal, type LayoutConfig } from './components/AdminDashboardModal';
@@ -1267,6 +1268,7 @@ export function App() {
         </section>
 
         {/* Interactive RSVP & Guestbook */}
+        <CoupleGallery />
         {layoutConfig.showGuestbook && (
           <GuestBookRSVP onAddResponse={handleAddResponse} responses={responses} />
         )}
