@@ -783,9 +783,9 @@ export function App() {
         ...rootBackgroundStyle,
         ...(isPublicView ? {
           backgroundColor: '#f4ead9',
-          // Keep the entrance/gate artwork isolated to PaperReveal. The invitation
-          // itself uses its own background so the gate texture never leaks behind it.
-          backgroundImage: `url('${assetPath('bg_royal_ivory_generated.png')}')`,
+          // Keep all gate artwork isolated to PaperReveal. Do not place any
+          // entrance/legacy image behind the public invitation.
+          backgroundImage: 'none',
           backgroundPosition: 'center top',
           backgroundSize: '100% auto',
           backgroundRepeat: 'repeat-y',
