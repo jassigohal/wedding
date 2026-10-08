@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1200" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="ivory" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffaf1"/><stop offset="1" stop-color="#eadfd2"/></linearGradient>
+    <linearGradient id="rose" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#c6aaa5" stop-opacity=".62"/></linearGradient>
+    <filter id="shadow"><feGaussianBlur stdDeviation="12"/></filter>
+  </defs>
+  <rect width="600" height="1200" fill="url(#ivory)"/>
+  <rect y="760" width="600" height="440" fill="url(#rose)"/>
+  <path d="M22 28h540v1144H22z" fill="none" stroke="#b89b67" stroke-width="8" opacity=".72"/>
+  <path d="M48 54h488v1092H48z" fill="none" stroke="#b89b67" stroke-width="2" opacity=".55"/>
+  <path d="M70 70v760 M70 70h420 M490 70v760" fill="none" stroke="#b89b67" stroke-width="3" opacity=".35"/>
+  <path d="M600 0v1200" stroke="#8d7047" stroke-width="22" opacity=".25"/>
+  <path d="M560 0v1200" stroke="#fffdf8" stroke-width="10" opacity=".7"/>
+  <g fill="none" stroke="#b89b67" stroke-width="7" opacity=".75">
+    <path d="M74 190c92-86 174-70 226 22 30 54 72 62 126 18"/>
+    <path d="M74 190c38 2 61 24 66 66-36 0-58-22-66-66z"/>
+    <path d="M74 190c28-28 57-31 86-9-15 35-44 38-86 9z"/>
+    <path d="M74 860q112-100 224 0t224 0"/>
+    <path d="M74 930q112-100 224 0t224 0"/>
+  </g>
+  <g stroke="#b89b67" stroke-width="5" opacity=".42"><path d="M75 1030l150 120M225 1030l-150 120M300 1030l150 120M450 1030l-150 120"/></g>
+  <path d="M575 0v1200" stroke="#5b3b32" stroke-width="18" opacity=".12" filter="url(#shadow)"/>
+</svg>
