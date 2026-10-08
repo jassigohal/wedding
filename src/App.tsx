@@ -783,11 +783,9 @@ export function App() {
         ...rootBackgroundStyle,
         ...(isPublicView ? {
           backgroundColor: '#f4ead9',
-          backgroundImage: designConfig.backgroundImage?.startsWith('/')
-            ? `url('${assetPath(designConfig.backgroundImage)}')`
-            : designConfig.backgroundImage
-              ? `url('${designConfig.backgroundImage}')`
-              : `url('${assetPath('paper-panel-floral-v2.png')}')`,
+          // The finalized public version uses this exact floral paper texture.
+          // Do not fall back to any older saved background from localStorage.
+          backgroundImage: `url('${assetPath('paper-panel-floral-v2.png')}')`,
           backgroundPosition: 'center top',
           backgroundSize: '100% auto',
           backgroundRepeat: 'repeat-y',
