@@ -782,12 +782,12 @@ export function App() {
       style={{
         ...rootBackgroundStyle,
         ...(isPublicView ? {
-          backgroundColor: '#481B26',
+          backgroundColor: '#f4ead9',
           backgroundImage: `url('${assetPath('bg_maroon_outer_sketch.png')}')`,
           backgroundPosition: 'center top',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed'
+          backgroundSize: '100% auto',
+          backgroundRepeat: 'repeat-y',
+          backgroundAttachment: 'scroll'
         } : {}),
         ...(isPublicView ? {
           '--background': '#49151F',
