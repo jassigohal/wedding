@@ -783,9 +783,9 @@ export function App() {
         ...rootBackgroundStyle,
         ...(isPublicView ? {
           backgroundColor: '#f4ead9',
-          // The finalized public version uses this exact floral paper texture.
-          // Do not fall back to any older saved background from localStorage.
-          backgroundImage: `url('${assetPath('paper-panel-floral-v2.png')}')`,
+          // Keep the entrance/gate artwork isolated to PaperReveal. The invitation
+          // itself uses its own background so the gate texture never leaks behind it.
+          backgroundImage: `url('${assetPath('bg_royal_ivory_generated.png')}')`,
           backgroundPosition: 'center top',
           backgroundSize: '100% auto',
           backgroundRepeat: 'repeat-y',
