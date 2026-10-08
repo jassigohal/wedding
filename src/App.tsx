@@ -206,6 +206,7 @@ const initialLayoutConfig: LayoutConfig = {
 export function App() {
   const [hasOpenedDoors, setHasOpenedDoors] = useState(false);
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
+  const [isDateRevealed, setIsDateRevealed] = useState(false);
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
   const [isPdfPreviewOpen, setIsPdfPreviewOpen] = useState(false);
   const [pdfError, setPdfError] = useState<string | null>(null);
@@ -1036,12 +1037,17 @@ export function App() {
         {/* Heart Shape Scratch To Reveal Date Feature */}
         {layoutConfig.showScratchCard && (
           <div className="text-center my-2">
-            <ScratchToReveal revealText={eventDetails.weddingDate} />
+            <ScratchToReveal revealText={eventDetails.weddingDate} onReveal={() => setIsDateRevealed(true)} />
+          </div>
+        )}
+
+        {layoutConfig.showScratchCard && isDateRevealed && (
+          <div className="mt-7 mb-12 text-center">
             <a
               href={googleCalendarUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-5 inline-flex items-center gap-2 rounded-full border px-5 py-2 text-sm font-semibold transition hover:brightness-110"
+              className="inline-flex items-center gap-2 rounded-full border px-5 py-2 text-sm font-semibold transition hover:brightness-110"
               style={{ color: 'var(--primary)', borderColor: 'var(--accent)', backgroundColor: 'rgba(255,255,255,.12)' }}
             >
               <Calendar size={16} aria-hidden="true" />
