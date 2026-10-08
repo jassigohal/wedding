@@ -226,6 +226,13 @@ body {
   .studio-demo-phone { width: 200px; border-width: 6px; border-radius: 22px; }
 }
 @media (max-width: 640px) {
+  /* Prevent the tall invitation texture from zooming/cropping on iPhones. */
+  [data-invitation-page] {
+    background-size: 100% auto !important;
+    background-position: center top !important;
+    background-attachment: scroll !important;
+  }
+
   .workspace-toolbar { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; padding-bottom: 2px; }
   .workspace-toolbar > button:nth-child(1), .workspace-toolbar > button:nth-child(4), .workspace-toolbar > button:nth-child(5), .workspace-toolbar > button:nth-child(6), .workspace-toolbar > button:nth-child(8) { display: none; }
   .studio-demo-grid { display: flex; flex-direction: column; }
