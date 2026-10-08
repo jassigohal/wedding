@@ -783,7 +783,11 @@ export function App() {
         ...rootBackgroundStyle,
         ...(isPublicView ? {
           backgroundColor: '#f4ead9',
-          backgroundImage: `url('${assetPath('bg_maroon_outer_sketch.png')}')`,
+          backgroundImage: designConfig.backgroundImage?.startsWith('/')
+            ? `url('${assetPath(designConfig.backgroundImage)}')`
+            : designConfig.backgroundImage
+              ? `url('${designConfig.backgroundImage}')`
+              : `url('${assetPath('paper-panel-floral-v2.png')}')`,
           backgroundPosition: 'center top',
           backgroundSize: '100% auto',
           backgroundRepeat: 'repeat-y',
