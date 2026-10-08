@@ -332,7 +332,7 @@ export function App() {
     return DEFAULT_DESIGN_CONFIG;
   });
 
-  const [customBgImage, setCustomBgImage] = useState<string | null>(null);
+  const [customBgImage] = useState<string | null>(null);
   const [isSketchActive, setIsSketchActive] = useState<boolean>(true);
 
   const [responses, setResponses] = useState<GuestResponse[]>(() => {
