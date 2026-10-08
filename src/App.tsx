@@ -20,7 +20,7 @@ import { CoupleGallery } from './components/CoupleGallery';
 import { PDFTemplate } from './components/PDFTemplate';
 import { PREDEFINED_THEMES, DEFAULT_DESIGN_CONFIG } from './components/CustomizerDrawer';
 import type { LayoutConfig } from './layoutTypes';
-import { FinalVersionEditor } from './components/FinalVersionEditor';
+import { CurrentAdminPanel } from './components/CurrentAdminPanel';
 import { PublicHome } from './components/PublicHome';
 import type { EventDetails, GuestResponse, WeddingEvent, DesignConfig } from './types';
 import html2canvas from 'html2canvas';
@@ -802,13 +802,14 @@ export function App() {
       )}
 
       {/* Dedicated editor for this finalized invitation version only */}
-      {!isPublicView && <FinalVersionEditor
+      {!isPublicView && <CurrentAdminPanel
         isOpen={isAdminDashboardOpen}
         onClose={() => setIsAdminDashboardOpen(false)}
         eventDetails={eventDetails}
-        onUpdateEventDetails={setEventDetails}
+        onSaveEventDetails={setEventDetails}
         designConfig={designConfig}
-        onUpdateDesignConfig={setDesignConfig}
+        onSaveDesignConfig={setDesignConfig}
+        onPreviewPdf={() => setIsPdfPreviewOpen(true)}
       />}
 
       {/* Floating Header Controls */}
